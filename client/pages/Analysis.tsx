@@ -214,6 +214,52 @@ FROM MonthlySales;`}
               </div>
             </div>
 
+            {/* Module 3: Cohort Retention */}
+            <div>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="bg-primary/10 p-3 rounded-lg">
+                  <LineIcon className="text-primary w-6 h-6" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">Stage 03: Cohort Performance</h2>
+                  <p className="text-foreground/60 font-medium">Tracking Lifetime Value (LTV) through multi-stage purchase grouping.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <SQLBlock 
+                  title="Cohort Revenue Matrix"
+                  query={`WITH FirstPurchase AS (
+  SELECT customer_id, MIN(DATE_TRUNC('month', order_date)) as cohort
+  FROM orders
+  GROUP BY 1
+)
+SELECT 
+  fp.cohort,
+  DATE_TRUNC('month', o.order_date) as sales_month,
+  SUM(o.total_amount) as revenue,
+  COUNT(DISTINCT o.customer_id) as active_users
+FROM orders o
+JOIN FirstPurchase fp ON o.customer_id = fp.customer_id
+GROUP BY 1, 2
+ORDER BY 1, 2;`}
+                  insight="Q1 cohorts show 12% higher LTV compared to Q3, suggesting that customers acquired during New Year promotions have higher 'Stickiness'."
+                />
+
+                <div className="space-y-6">
+                  <h3 className="text-sm font-black text-primary uppercase tracking-[0.2em]">The Extraction</h3>
+                  <div className="bg-muted/30 border border-border p-6 rounded-lg">
+                    <p className="text-sm text-foreground/80 leading-relaxed mb-4">
+                      By isolating the <code>MIN(order_date)</code> per user, we establish a fixed baseline to measure decay and expansion revenue.
+                    </p>
+                    <div className="flex items-center gap-2 text-xs font-bold text-success uppercase">
+                      <CheckCircle2 size={14} /> Expansion Revenue Identified
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Final Outcome */}
             <div className="bg-primary/5 border border-primary/20 p-8 rounded-2xl text-center">
               <CheckCircle2 className="w-12 h-12 text-primary mx-auto mb-4" />
