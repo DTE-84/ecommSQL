@@ -1,0 +1,4 @@
+root: C:\Users\drewt\dtedev\ecommerceSQL 
+path: C:\Program Files\nodejs 
+arch: 64 
+proxy: none
