@@ -95,7 +95,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-[10px] font-black uppercase tracking-widest text-foreground/40">Base of Operations</p>
-                    <p className="text-sm font-bold">St. Louis, MO // Hannibal, MO</p>
+                    <p className="text-sm font-bold">St. Louis, MO // Quincy, IL</p>
                   </div>
                 </div>
               </div>
@@ -112,8 +112,8 @@ export default function Contact() {
               {isSuccess && (
                 <div className="absolute inset-0 z-50 bg-primary flex flex-col items-center justify-center text-primary-foreground text-center p-8 animate-in fade-in">
                   <CheckCircle2 size={64} className="mb-6 animate-bounce" />
-                  <h3 className="text-2xl font-black uppercase italic mb-4">Uplink Confirmed</h3>
-                  <p className="font-medium">Direct message has been routed. Stand by for response protocol.</p>
+                  <h3 className="text-2xl font-black uppercase italic mb-4">Confirmed</h3>
+                  <p className="font-medium">Direct message has been routed. Stand by for response.</p>
                 </div>
               )}
 
@@ -147,7 +147,7 @@ export default function Contact() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1">Transmission // Message</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1"> Message</label>
                     <textarea 
                       name="message"
                       required
