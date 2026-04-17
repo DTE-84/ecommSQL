@@ -43,7 +43,7 @@ export default function Contact() {
         <div className="container px-4 md:px-6">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl font-black tracking-tight text-foreground mb-4 uppercase italic">
-              Technical <span className="text-primary">Uplink</span>
+              Contact <span className="text-primary">Links</span>
             </h1>
             <p className="text-lg text-foreground/70 leading-relaxed font-medium">
               Initiate contact for data engineering collaborations, SQL architecture audits, or professional inquiries.
